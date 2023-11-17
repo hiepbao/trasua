@@ -1,0 +1,53 @@
+﻿@model List<_____.Models.Product>
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_LayoutProduct.cshtml";
+}
+
+<div class="col-md-6 mb-3">
+    <div class="input-group">
+        <input type="text" class="form-control" id="productName" placeholder="Nhập tên sản phẩm...">
+        <div class="input-group-append">
+            <button class="btn btn-primary" onclick="searchProduct()">Tìm kiếm</button>
+        </div>
+    </div>
+</div>
+
+<div id="products">
+    <table id="prod-table">
+
+
+        @for (int i = 0; i < Model.Count; i += 4)
+        {
+            <tr>
+                @for (int j = i; j < i + 4 && j < Model.Count; j++)
+                {
+                    
+                    <td id="prod-td">
+                        
+                            <div class="product-link" onclick="window.location.href='@Url.Action("DetailHome", "Products", new { id = Model[j].ProID })'">
+                                <img id="prod-img" class="w-75" src="@Model[j].ProImg" alt="Product Image" /><br />
+                                <p class="prod-name">@Model[j].ProName</p>
+                                <p class="prod-Price">@Model[j].Price đ</p>
+                                <button class="prod-Buy" style="border-radius: 0.5rem; width: 100%;background-color: orange;" onclick="window.location.href='@Url.Action("Details", "Products", new { id = Model[j].ProID })'">Mua ngay</button>
+                            </div>
+                        
+                    </td>
+                    
+                   
+                }
+            </tr>
+
+        }
+
+    </table>
+
+</div>
+
+<script>
+    function searchProduct() {
+        var productName = document.getElementById("productName").value;
+        window.location.href = '@Url.Action("Search1", "Products")?productName=' + productName;
+    }
+</script>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<_____.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAmin.cshtml";
+}
+
+<main id="category" class="main">
+
+    <div class="pagetitle">
+        <h1>Quản lý danh mục</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Quản lý danh mục</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="col-12">
+            <div class="button-body">
+                @*<button data-bs-toggle="modal" data-bs-target="#ModalCreateVoucher" type="submit" id="addOrder" class="btn btn-primary mb-3" style="border-radius: 0.5rem; width: auto;">Thêm khách hàng</button>*@
+                @*@Html.ActionLink("Create New", "Create")*@
+                <button class="btn btn-primary mb-3" style="border-radius: 0.5rem; width: auto;" onclick="window.location.href='@Url.Action("Create")'">Create New</button>
+            </div>
+            <div class="card recent-sales overflow-auto">
+                <div class="card-body">
+                    <h5 class="fw-bold mt-4" style="color: #012970;">Danh sách danh mục</h5>
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên danh mục</th>
+                                <th>Tùy chọn</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customerTable">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CatID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CatName)
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-outline-primary mx-3" style="border-radius: 0.5rem; width: auto;" onclick="window.location.href='@Url.Action("Edit", new { id = item.CatID })'">Edit</button>
+                                        <button class="btn btn-outline-primary mx-3 " style="border-radius: 0.5rem; width: auto;" onclick="window.location.href='@Url.Action("Details", new { id = item.CatID })'">Details</button>
+                                        <button class="btn btn-primary mx-3" style="border-radius: 0.5rem; width: auto;" onclick="window.location.href='@Url.Action("Delete", new { id = item.CatID })'">Delete</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+</main><!-- End #main -->
+

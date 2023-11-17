@@ -1,0 +1,51 @@
+﻿@model IEnumerable<_____.Models.Product>
+
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_LayoutProduct.cshtml";
+}
+
+<h2>Product</h2>
+@foreach (var item in ViewBag.ProductsList as List<_____.Models.Product>)
+{
+    if (item != null)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProName)
+            </td>
+            <td>
+                <img class="w-50" src="@item.ProImg" alt="Product Image" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeScription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size.SizeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Suppelier.SupName)
+            </td>
+            <td>
+                <button class="btn btn-outline-primary " style="border-radius: 0.5rem; width: auto;" onclick="window.location.href='@Url.Action("Edit", new { id = item.ProID })'">Edit</button>
+                <button class="btn btn-outline-primary  " style="border-radius: 0.5rem; width: auto;" onclick="window.location.href='@Url.Action("Details", new { id = item.ProID })'">Details</button>
+                <button class="btn btn-primary " style="border-radius: 0.5rem; width: auto;" onclick="window.location.href='@Url.Action("Delete", new { id = item.ProID })'">Delete</button>
+            </td>
+        </tr>
+    }
+}

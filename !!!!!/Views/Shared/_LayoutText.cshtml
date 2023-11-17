@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    <style>
+
+        .navbar {
+            overflow: hidden;
+            background-color: white;
+            list-style: none;
+        }
+
+
+
+            .navbar a {
+                float: left;
+                display: block;
+                color: black;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                list-style: none;
+            }
+
+                .navbar a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+        .column {
+            float: left;
+            width: 16.66%;
+        }
+
+
+        .demo {
+            opacity: 0.6;
+        }
+
+            .active,
+            .demo:hover {
+                opacity: 1;
+            }
+
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+
+        .column {
+            float: left;
+            width: 16.66%;
+        }
+
+
+        .box_cauchuyen_content {
+            padding: 0;
+            font-family: 'Signika Negative', sans-serif;
+            float: left;
+            width: 100%;
+            margin: 40px 0 30px;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+        }
+
+        .box_cauchuyen_a {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            font-family: 'Signika Negative', sans-serif;
+            text-decoration: none;
+            max-width: 990px;
+            cursor: pointer;
+            outline: none;
+            display: inline-block;
+            position: relative;
+        }
+
+
+        .box_cauchuyen_img {
+            text-align: center;
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            font-family: 'Signika Negative', sans-serif;
+            float: left;
+            width: 100%;
+            position: relative;
+        }
+
+
+        .box_cauchuyen_text {
+            cursor: pointer;
+            margin: 0;
+            margin-bottom: .5rem;
+            font-family: inherit;
+            padding: 6px 30px;
+            min-width: 350px;
+            display: inline-block;
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 25px;
+            text-align: center;
+            position: absolute;
+            line-height: 1.7;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            font-weight: bold;
+        }
+
+        .tongca2 {
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+
+
+
+    <div class="navbar">
+        <a href="#home">TRANG CHỦ</a>
+        <a href="#news">GIỚI THIỆU</a>
+        <a href="#contact">MENU UỐNG</a>
+        <a href="">NHƯỢNG QUYỀN</a>
+        <a href="#about"><img src="https://wujiateavn.com/files/systems/logo-l6m1s0u2.png" atl="hongtrangogia" style="width:160px;height:90px" /></a>
+        <a href="#about">HỆ THỐNG CỦA HÀNG</a>
+        <a href="#about">TIN TỨC</a>
+        <a href="#about">LIÊN HỆ</a>
+        <a href="#about">GIỎ HÀNG</a>
+    </div>
+
+
+
+
+
+
+
+    <div class="container">
+
+        <div class="mySlides">
+            <div class="numbertext">1 / 4</div>
+            <img src="https://wujiateavn.com/files/banner/banner-1-setapcxk.jpf" style="width:100%;height:500px">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 4</div>
+            <img src="https://wujiateavn.com/files/banner/banner-2-ovbos6az.jpf" style="width: 100%; height: 500px">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 4</div>
+            <img src="https://wujiateavn.com/files/banner/banner-3-ofhpha2t.jpf" style="width: 100%; height: 500px">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 4</div>
+            <img src="https://wujiateavn.com/files/banner/banner-4-zoibteka.jpf" style="width: 100%; height: 500px">
+        </div>
+
+
+
+
+
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+
+
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("demo");
+            let captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
+    </script>
+
+
+
+    <div class="box_cauchuyen_content">
+
+
+
+        <div class="container">
+            <img src="https://wujiateavn.com/files/category/cau-chuyen-hong-tra-ngo-gia-gmz2cluw.jpg" alt="Câu chuyện HỒNG TRÀ NGÔ GIA" style="width:100%;">
+            <div class="centered">Câu chuyện HỒNG TRÀ NGÔ GIA</div>
+        </div>
+
+
+
+
+        <a class="box_cauchuyen_a" href="" title="Câu chuyện HỒNG TRÀ NGÔ GIA ">
+            <figure class="box_cauchuyen_img">
+                <img src="https://wujiateavn.com/files/category/cau-chuyen-hong-tra-ngo-gia-gmz2cluw.jpg" alt="Câu chuyện HỒNG TRÀ NGÔ GIA ">
+            </figure>
+            <h4 class="box_cauchuyen_text"><b>Câu chuyện HỒNG TRÀ NGÔ GIA </b></h4>
+        </a>
+    </div>
+
+
+    <div class="danhmuctong">
+        <section>
+            <div class="box_danhmuc_content">
+                <div class="tongca2">
+                    <div class="box_danhmuc_item danhmuc_1">
+                        <a class="box_danhmuc_a" href="" title="Lịch sử hình thành ">
+                            <figure class="box_danhmuc_img">
+                                <img src="https://wujiateavn.com/files/category/lich-su-hinh-thanh-m9mqy4st.png" alt="Lịch sử hình thành ">
+                            </figure>
+                            <h4 class="box_danhmuc_text"><b>Lịch sử hình thành </b></h4>
+                        </a>
+                    </div>
+                    <div class="box_danhmuc_item danhmuc_2">
+
+                        <a class="box_danhmuc_a" href="" title=" Thực đơn ">
+                            <figure class="box_danhmuc_img"><img src="https://wujiateavn.com/files/category/thuc-don-rxmbepce.jpg" alt=" Thực đơn "></figure><h4 class="box_danhmuc_text">
+                                <b> Thực đơn </b>
+                            </h4>
+                        </a>
+                    </div>
+                    <div class="box_danhmuc_item danhmuc_3">
+                        <a class="box_danhmuc_a" href="" title="TƯ VẤN NHƯỢNG QUYỀN">
+                            <figure class="box_danhmuc_img"><img src="https://wujiateavn.com/files/category/tu-van-nhuong-quyen-h9mbfwzt.jpg" alt="TƯ VẤN NHƯỢNG QUYỀN"></figure>
+                            <div class="box_danhmuc_text_big">
+                                <div class="danhmuc_text">
+                                    <h6 class="danhmuc_text_name">TƯ VẤN NHƯỢNG QUYỀN                                </h6>
+                                    <div class="danhmuc_text_sub"><p>Các chiến lược tiếp thị và kinh doanh của công ty nhấn mạnh nhất đến khái niệm“khách hàng” và định vị tâm lý của người tiêu dùng đối với chuỗi trà bong bóng Đài Loan dựa trên mức độ “sự hài lòng và giá trị mới lạ”, nhằm hướng tới tương lai của công ty ở Trung Quốc Đại Trung Quốc. Hoạt động, nó sẽ phát triển theo hướng tinh tếvà nguyên bản hơn.</p>                                </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="TINKHUYENMAI">
+        <img id="anh5" src="https://wujiateavn.com/images/icon_title.png" />
+        <h1>TIN KHUYẾN MÃI</h1>
+
+    </div>
+
+
+</body>
+</html>

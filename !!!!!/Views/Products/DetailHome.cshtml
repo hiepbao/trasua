@@ -1,0 +1,73 @@
+﻿@model _____.Models.Product
+
+@{
+    ViewBag.Title = "DetailHome";
+    Layout = "~/Views/Shared/_LayoutProductDetail.cshtml";
+}
+<div class="m-5 p-5">
+    <nav>
+        <button type="button"><i class="fa-solid fa-bars"></i></button>
+        <input placeholder="Giao Đến" style="line-height:30px; padding:5px 20px; width:500px; " />
+        <button type="button" style="line-height: 30px; padding: 5px 20px; width: 70px; margin-left: -35px;"><i class="fa-solid fa-location-dot"></i></button>
+        <button type="button" style="line-height: 30px; padding: 5px 20px; width: 70px;"><i class="fa-solid fa-cart-shopping"></i></button>
+        <button type="button" style="line-height: 30px; padding: 5px 20px; width: 70px;"><i class="fa-solid fa-language"></i></button>
+    </nav>
+
+    <div class="Deatail">
+        <img id="img-prod" class="w-25 text-center" src="@Model.ProImg" />
+        <h1 id="name-prod">@Model.ProName</h1>
+        <h1>Giá : @Model.Price đ/ly</h1>
+        <h2>Đơn vị tính</h2>
+        <input type="radio">
+        <span>Vừa 700cc + 19,000 </span>
+        <input type="radio">
+        <span>Lớn 1000cc + 22,000 </span>
+    </div>
+    <div class="Topping">
+        <h3>TOPPING THÊM</h3>
+        <h4>Chọn tối đa 10</h4>
+        <input type="checkbox">
+        <span>Trân Châu Đường Đen 黑糖珍珠 .+5,000</span>
+        <input type="checkbox">
+        <span>Thạch Khoai môn 小芋圓 .+5,000</span>
+        <input type="checkbox">
+        <span>Miếng đào. 蜜桃肉 +5,000</span>
+        <input type="checkbox">
+        <span>Thạch Sương Sáo 仙草凍 +3,000</span>
+        <input type="checkbox">
+        <span>Trân châu khoai môn +5,000</span>
+        <input type="checkbox">
+        <span>Nếp Cẩm +5,000</span>
+        <input type="checkbox">
+        <span>Trân Châu Hoàng Kim baby +5,000</span>
+    </div>
+    <div class="Đ-Đ">
+        <h5>Lượng Đá & Đường</h5>
+        <h6>Chọn tối đa 2</h6>
+        <input type="checkbox">
+        <span>Không đá</span>
+        <input type="checkbox">
+        <span>Ít đá</span>
+        <input type="checkbox">
+        <span>Bình thường</span>
+        <input type="checkbox">
+        <span>Nhiều đá</span>
+        <input type="checkbox">
+        <span>0% đường</span>
+        <input type="checkbox">
+        <span>30%... đường</span>
+        <input type="checkbox">
+        <span>.50% đường</span>
+        <input type="checkbox">
+        <span>.70% đường</span>
+        <input type="checkbox">
+        <span>.100% đường</span>
+        <input type="checkbox">
+        <span>Để đá riêng</span>
+        <input type="checkbox">
+        <span>Không thể giảm được lượng đường</span>
+    </div>
+
+    <button class="btn btn-primary mx-3" style="border-radius: 0.5rem; width: auto" onclick="window.location.href='@Url.Action("Create", "Orders")'">Thêm giỏ hàng</button>
+    <button class="btn btn-primary mx-3  " style="border-radius: 0.5rem; width: auto" onclick="window.location.href='@Url.Action("Home")'">Back to Home</button>
+</div>

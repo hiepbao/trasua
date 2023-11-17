@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/MyCSS/MyStyle.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="div-top">
+        <container class="fm-menu">
+            <img src="~/Content/Images/menu.png" class="fm-size-img-menu" href="Contact" />
+            <input type="text" class="txtAdress" />
+            <img src="~/Content/Images/placeholder.png" class="fm-size-img-adress1" />
+                <img src="~/Content/Images/shopping-bag.png" class="fm-size-img-shop" />
+                <img src="~/Content/Images/translate.png" class="fm-size-img-translate" />
+        </container>
+    </div>
+    <div id="div-content">
+        <div id="div-right">
+            <div >
+                <button class="fm-1" >Giao hàng</button>
+            </div>
+            <div>
+                <div class="fm-2">
+                    <h3 class="card-title">Thông tin liên hệ</h3>
+                    <a>
+                        <p>
+                            <input type="text" class="txt-21" />
+                        </p>
+                    </a>
+                    <div>
+                        <div class="txt-22"  >
+                            <button class="txt-221" >
+                                <img src="~/Content/Images/icons8-vietnam-flag-40.png" class="fm-size-img-flag" />
+                                <img src="~/Content/Images/icons8-expand-arrow-20.png" class="fm-size-img-arrow" />
+                            </button>
+                            <div>
+                                <input type="tel" class="txt-222" />
+                            </div>
+                        </div>
+                </div>
+                <a>
+                    <p class="txt-23">
+                        <input type="text" class="txt-231" />
+                        <img src="~/Content/Images/placeholder.png" class="fm-size-img-adress2" />
+                    </p>
+                </a>
+            </div>
+            </div>
+            <div>
+                <div class="fm-3">
+                    <h3 class="card-title">Sản phẩm đã chọn</h3>
+                    <div class="txt-31"></div>
+                </div>
+            </div>
+            <div>            
+                <div class="fm-4">
+                    <h3 class="card-title">Phương thức thanh toán</h3>
+                    <div class="txt-41">
+                        <img src="~/Content/Images/icons8-dollar-35.png" />
+                        <div class="content-txt-41">
+                            <a>Thanh toán khi nhận hàng</a>
+                        </div>
+                        <input type="radio" name="PTTT" />
+                    </div>
+                    <div class="txt-42">
+                        <img src="~/Content/Images/icons8-dollar-35.png" />
+                        <div class="content-txt-42">
+                            <a>Ví MoMo</a>
+                        </div>
+                        <input type="radio" name="PTTT" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="div-left"></div>
+        @RenderBody()
+    </div>
+    <div id="div-footer">
+        <div>
+            Powered by
+            <a href="https://posapp.vn/he-thong-dat-hang-truc-tuyen?_gl=1*lnb264*_ga*NDQ1OTU4MTA3LjE2OTg5NzQ3NzM.*_ga_LRE5S9F16M*MTY5OTMzMzM4Ni40LjEuMTY5OTMzNTA0NC4wLjAuMA.." class="fm-link">PosApp.vn</a>
+        </div>
+    </div>
+</body>
+</html>

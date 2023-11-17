@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_LayoutAmin</title>
+    <style>
+
+        .navbar {
+            overflow: hidden;
+            background-color: white;
+            list-style: none;
+        }
+
+
+
+            .navbar a {
+                float: left;
+                display: block;
+                color: black;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                list-style: none;
+            }
+
+                .navbar a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+    <body>
+
+        <div class="navbar">
+            <a href="#home">TRANG CHỦ</a>
+            <a href="#news">GIỚI THIỆU</a>
+            <a href="#contact">MENU UỐNG</a>
+            <a href="">NHƯỢNG QUYỀN</a>
+            <a href="#about"><img src="https://wujiateavn.com/files/systems/logo-l6m1s0u2.png" atl="hongtrangogia" style="width:160px;height:90px" /></a>
+            <a href="~/Products/Index">QUẢN LÝ SẢN PHẨM</a>
+            <a href="~/Categories/Index">QUẢN LÝ DANH MỤC</a>
+            <a href="~/Orders/Index">QUẢN LÝ ĐƠN HÀNG</a>
+            <a href="#about">GIỎ HÀNG</a>
+        </div>
+
+        <div>
+            @RenderBody()
+        </div>
+    </body>
+</html >
