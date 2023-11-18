@@ -1,0 +1,80 @@
+﻿@model IEnumerable<_____.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<main id="order" class="main">
+
+    <div class="pagetitle">
+        <h1>Quản lý danh sách đơn hàng</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Quản lý danh sách đơn hàng</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="col-12">
+
+            <div class="card recent-sales overflow-auto">
+                <div class="card-body">
+                    <h5 class="fw-bold mt-4" style="color: #012970;">Danh sách đơn hàng</h5>
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Tổng giá</th>
+                                <th>Ngày mua</th>
+                                <th>Tên khách hàng</th>
+                                <th>Địa chỉ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customerTable">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OrderID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Product.ProName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.QuantityOrder)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TotalValue)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OrderDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Customer.CusName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Addres)
+                                    </td>
+
+                                    <td>
+                                        <button class="btn btn-outline-primary mx-3 " style="border-radius: 0.5rem; width: auto;" onclick="window.location.href='@Url.Action("Details", new { id = item.OrderID })'">Details</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</main><!-- End #main -->

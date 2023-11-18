@@ -1,0 +1,103 @@
+﻿@model _____.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<div class="  p-5 m-5">
+    <h3>Bạn muốn xóa?</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <div class="row">
+            <div class="col-6">
+                <dd>
+                    <img class="w-100" src="@Model.ProImg" alt="Product Image" />
+                </dd>
+            </div>
+            <div class="col-6">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProName)
+                </dd>
+
+
+
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DeScription)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DeScription)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CreatedDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Quantity)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Category.CatName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Category.CatName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Size.SizeName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Size.SizeName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Suppelier.SupName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Suppelier.SupName)
+                </dd>
+
+            </div>
+        </div>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <button type="submit" value="Delete" class="btn btn-default btn-outline-primary mx-3" style="border-radius: 0.5rem; width: auto;">Delete</button>
+
+        </div>
+    }
+</div>
+<div><button class="btn btn-primary mx-3  " style="border-radius: 0.5rem; width: auto;" onclick="window.location.href='@Url.Action("Index")'">Back to List</button></div>

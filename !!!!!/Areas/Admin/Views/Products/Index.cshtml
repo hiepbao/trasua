@@ -1,0 +1,136 @@
+﻿@model IEnumerable<_____.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="product" class="main">
+
+    <div class="pagetitle">
+        <h1>Quản lý sản phẩm</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Quản lý sản phẩm</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <div class="col-md-6 mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" id="productName" placeholder="Nhập tên sản phẩm...">
+            <div class="input-group-append">
+                <button class="btn btn-primary" onclick="searchProduct()">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="section dashboard">
+        <div class="col-12">
+            <div class="button-body">
+                @*<button data-bs-toggle="modal" data-bs-target="#ModalCreateVoucher" type="submit" id="addOrder" class="btn btn-primary mb-3" style="border-radius: 0.5rem; width: auto;">Thêm khách hàng</button>*@
+                @*@Html.ActionLink("Create New", "Create")*@
+                <button class="btn btn-primary mb-3" style="border-radius: 0.5rem; width: auto;" onclick="window.location.href='@Url.Action("Create")'">Create New</button>
+            </div>
+            <div class="card recent-sales overflow-auto">
+                <div class="card-body">
+                    <h5 class="fw-bold mt-4" style="color: #012970;">Danh sách sản phẩm</h5>
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    STT
+                                </th>
+                                <th>
+                                    Tên sản phẩm
+                                </th>
+                                <th>
+                                    Ảnh
+                                </th>
+                                <th>
+                                    Mô tả
+                                </th>
+                                <th>
+                                    Ngày tạo
+                                </th>
+                                <th>
+                                    Giá
+                                </th>
+                                <th>
+                                    Số lượng
+                                </th>
+                                <th>
+                                    Danh mục
+                                </th>
+                                <th>
+                                    Size
+                                </th>
+                                <th>
+                                    Nhà phân phối
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="customerTable">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ProID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ProName)
+                                    </td>
+                                    <td>
+                                        <img class="w-50" src="@item.ProImg" alt="Product Image" />
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DeScription)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Price)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Quantity)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Category.CatName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Size.SizeName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Suppelier.SupName)
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-outline-primary " style="border-radius: 0.5rem; width: auto;" onclick="window.location.href='@Url.Action("Edit", new { id = item.ProID })'">Edit</button>
+                                        <button class="btn btn-outline-primary  " style="border-radius: 0.5rem; width: auto;" onclick="window.location.href='@Url.Action("Details", new { id = item.ProID })'">Details</button>
+                                        <button class="btn btn-primary " style="border-radius: 0.5rem; width: auto;" onclick="window.location.href='@Url.Action("Delete", new { id = item.ProID })'">Delete</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+</main><!-- End #main -->
+
+<script>
+    function searchProduct() {
+        var productName = document.getElementById("productName").value;
+        window.location.href = '@Url.Action("Search", "Products")?productName=' + productName;
+    }
+</script>
